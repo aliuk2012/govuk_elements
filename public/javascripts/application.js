@@ -114,6 +114,14 @@ function ShowHideContent() {
 
 $(document).ready(function() {
 
+  // Fix the skiplink
+  // https://bugs.chromium.org/p/chromium/issues/detail?id=37721
+  $('.skiplink').click(function(e) {
+    var skiplinkDestination = $(this).attr('href');
+    e.preventDefault();
+    $(skiplinkDestination).focus();
+  });
+
   // Turn off jQuery animation
   jQuery.fx.off = true;
 
